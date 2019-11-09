@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "0.0.0-experimental-5faf377df",
-    "react-dom": "0.0.0-experimental-5faf377df",
+    "react": "^0.0.0-experimental-38dd17ab9",
+    "react-cache": "^2.0.0-alpha.1",
+    "react-dom": "^0.0.0-experimental-38dd17ab9",
     "react-scripts": "3.2.0",
+    "scheduler": "^0.0.0-experimental-38dd17ab9",
     "styled-components": "^4.4.1",
     "swr": "^0.1.5"
   },

@@ -1,17 +1,23 @@
-import React from 'react';
-import { StyledImage, StyledContainer, StyledSummaryTitle, StyledContentContainer, StyledSummaryContent } from './Summary.styled';
-import { resourceSummary } from '../../api';
+import React from "react";
+import {
+  StyledImage,
+  StyledContainer,
+  StyledSummaryTitle,
+  StyledContentContainer,
+  StyledSummaryContent
+} from "./Summary.styled";
+import useSWR from "swr";
+import { fetchSummary } from "./Summary.api";
 
-const resource = resourceSummary('/api/summary');
 export const Summary = () => {
-    const data = resource.read();
-    return (
-        <StyledContainer>
-            <StyledImage src={data.imageUrl} alt="summary" />
-            <StyledContentContainer>
-                <StyledSummaryTitle>{data.headerTitle}</StyledSummaryTitle>
-                <StyledSummaryContent>{data.content}</StyledSummaryContent>
-            </StyledContentContainer>
-        </StyledContainer>
-    )
-}
+  const { data } = useSWR("/summary", fetchSummary, { suspense: true });
+  return (
+    <StyledContainer>
+      <StyledImage src={data.imageUrl} alt="summary" />
+      <StyledContentContainer>
+        <StyledSummaryTitle>{data.headerTitle}</StyledSummaryTitle>
+        <StyledSummaryContent>{data.content}</StyledSummaryContent>
+      </StyledContentContainer>
+    </StyledContainer>
+  );
+};
