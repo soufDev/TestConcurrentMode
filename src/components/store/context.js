@@ -1,11 +1,8 @@
 import React from "react";
-import { fetchData } from "../../api";
 
-const initialResource = fetchData();
 const initialState = {
   selectedTab: 1,
-  visibleTab: 1,
-  resource: initialResource
+  visibleTab: 1
 };
 
 const reducer = (state, action) => {
@@ -18,8 +15,7 @@ const reducer = (state, action) => {
     case "showTab":
       return {
         ...state,
-        visibleTab: action.visibleTab,
-        resource: action.resource
+        visibleTab: action.visibleTab
       };
     default:
       return state;

@@ -1,7 +1,6 @@
 import React from "react";
 import { TabButton } from "./Tabs.styled";
 import { useTabReducer } from "../store";
-import { fetchData } from "../../api";
 
 export const Tab = React.memo(({ id, label }) => {
   const { state, dispatch } = useTabReducer();
@@ -15,8 +14,7 @@ export const Tab = React.memo(({ id, label }) => {
   const setVisibleTab = () =>
     dispatch({
       type: "showTab",
-      visibleTab: id,
-      resource: fetchData()
+      visibleTab: id
     });
   const handleTabClick = () => {
     setHighlightedTab();
