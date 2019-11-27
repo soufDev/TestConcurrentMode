@@ -6,7 +6,7 @@ this is a project test for concurrent mode and experimental API with [swr](https
 
 In the project directory, you can run:
 
-### `yarn` or `npm i``
+### `yarn` or `npm i`
 
 To install all the dependencies
 
