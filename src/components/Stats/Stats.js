@@ -2,11 +2,11 @@ import React from "react";
 import PercentageCircle from "../PercentageCircle";
 import theme from "../../theme";
 import { StyledStatsWrapper, StyledDescriptionText } from "./Stats.styled";
-import useSWR from "swr";
+import { useQuery } from "react-query";
 import { fetchStats } from "./Stats.api";
 
-export const Stats = () => {
-  const { data } = useSWR("/stats", fetchStats, { suspense: true });
+const StatsComponent = () => {
+  const { data } = useQuery("stats", fetchStats, { suspense: true });
   return (
     <StyledStatsWrapper>
       <PercentageCircle
@@ -20,3 +20,5 @@ export const Stats = () => {
     </StyledStatsWrapper>
   );
 };
+
+export const Stats = React.memo(StatsComponent);

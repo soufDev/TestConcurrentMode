@@ -6,7 +6,7 @@ const reviews = {
   "3":
     "Transom American Main pillage Shiver me timbers Pirate Round lass line careen coxswain gibbet. Belaying pin trysail maroon yo-ho-ho tackle black jack topsail blow the man down cackle fruit poop deck. Sloop lateen sail barque brigantine fathom yardarm starboard furl salmagundi port."
 };
-export const fetchReview = id => {
+export const fetchReview = ({ id }) => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(reviews[id]);

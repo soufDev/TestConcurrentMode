@@ -6,11 +6,11 @@ import {
   StyledContentContainer,
   StyledSummaryContent
 } from "./Summary.styled";
-import useSWR from "swr";
+import { useQuery } from "react-query";
 import { fetchSummary } from "./Summary.api";
 
 export const Summary = () => {
-  const { data } = useSWR("/summary", fetchSummary, { suspense: true });
+  const { data } = useQuery("summary", fetchSummary, { suspense: true });
   return (
     <StyledContainer>
       <StyledImage src={data.imageUrl} alt="summary" />
